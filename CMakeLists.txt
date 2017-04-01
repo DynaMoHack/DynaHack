@@ -1,7 +1,7 @@
 cmake_minimum_required (VERSION 2.8.4)
-project (DynaHack C)
+project (DynaMoHack C)
 
-# path prefix to install the game under, defaults to $HOME/dynahack
+# path prefix to install the game under, defaults to $HOME/dynamohack
 if (NOT INSTALL_BASE)
     if (WIN32)
         set(INSTALL_BASE "$ENV{USERPROFILE}")
@@ -14,28 +14,28 @@ endif ()
 if (BINDIR)
     set (BINDIR "${BINDIR}" CACHE PATH "binary location")
 else ()
-    set (BINDIR "${INSTALL_BASE}/dynahack/dynahack-data"
+    set (BINDIR "${INSTALL_BASE}/dynamohack/dynamohack-data"
          CACHE PATH "binary location" )
 endif()
 
 if (LIBDIR)
     set (LIBDIR "${LIBDIR}" CACHE PATH "library location")
 else ()
-    set (LIBDIR "${INSTALL_BASE}/dynahack/dynahack-data"
+    set (LIBDIR "${INSTALL_BASE}/dynamohack/dynamohack-data"
          CACHE PATH "library location" )
 endif()
 
 if (DATADIR)
     set (DATADIR "${DATADIR}" CACHE PATH "data location")
 else ()
-    set (DATADIR "${INSTALL_BASE}/dynahack/dynahack-data"
+    set (DATADIR "${INSTALL_BASE}/dynamohack/dynamohack-data"
          CACHE PATH "data location" )
 endif()
 
 if (SHELLDIR)
     set (SHELLDIR "${SHELLDIR}" CACHE PATH "launch script location")
 else ()
-    set (SHELLDIR "${INSTALL_BASE}/dynahack"
+    set (SHELLDIR "${INSTALL_BASE}/dynamohack"
          CACHE PATH "launch script location" )
 endif()
 
@@ -104,17 +104,17 @@ if (CMAKE_COMPILER_IS_GNUCC)
     endif ()
 endif ()
 
-# dynahack core
-add_subdirectory (libnitrohack)
+# dynamohack core
+add_subdirectory (libdynamohack)
 
-# dynahack network client
+# dynamohack network client
 if (ENABLE_NETCLIENT)
-    add_subdirectory (libnitrohack_client)
+    add_subdirectory (libdynamohack_client)
 endif ()
 
-# dynahack text ui
-add_subdirectory (nitrohack)
+# dynamohack text ui
+add_subdirectory (dynamohack)
 
 if (ENABLE_SERVER)
-    add_subdirectory (nitrohack_server)
+    add_subdirectory (dynamohack_server)
 endif ()
