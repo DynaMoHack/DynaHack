@@ -14,7 +14,7 @@
 extern const struct cmd_desc cmdlist[];
 
 static const char *const copyright_banner[] =
-{COPYRIGHT_BANNER_A, COPYRIGHT_BANNER_B, COPYRIGHT_BANNER_C, NULL};
+{COPYRIGHT_BANNER_A, COPYRIGHT_BANNER_B, COPYRIGHT_BANNER_C, COPYRIGHT_BANNER_D, NULL};
 
 static void wd_message(void);
 static void pre_move_tasks(boolean didmove);

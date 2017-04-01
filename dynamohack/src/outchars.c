@@ -75,6 +75,8 @@ static struct curses_symdef unicode_graphics_ovr[] = {
     {"altar",	-1,	{0x03A9, 0},	0},	/* Ω GREEK CAPITAL LETTER OMEGA */
     {"magic_chest",-1,	{0x2302, 0},	0},	/* ⌂ house */
     {"ice",	-1,	{0x00B7, 0},	0},	/* · centered dot */
+    {"corr",	-1,	{0x2593, 0},	0},	/* ▓ Dark shade */
+    {"litcorr",	-1,	{0x2592, 0},	0},	/* ▒ Medium shade */
 
     /* zap */
     {"zap_v",	-1,	{0x2502, 0},	0},	/* │ vertical rule */

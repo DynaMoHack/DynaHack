@@ -48,26 +48,27 @@ struct nh_menuitem mainmenu_items[] = {
 
 
 static const char *nhlogo_small[] = {
-" ____                        _    _               _    ",
-"|  _ \\                      | |  | |             | | __",
-"| | \\ | _   _  _____  _____ | |__| | _____  ____ | |/ /",
-"| | | || | | ||  _  \\/  _  ||  __  |/  _  |/  __||   / ",
-"| |_/ || |_| || | | || (_| || |  | || (_| || (__ | | \\ ",
-"|____/ \\____ ||_| |_|\\_____||_|  |_|\\_____|\\____||_|\\_\\",
-"       |_____/                         -- Ascend or Die",
+" ____                        __  __       _    _               _",
+"|  _ \\                      |  \\/  |     | |  | |             | | __",
+"| | \\ | _   _  _____  _____ | \\  / | ___ | |__| | _____  ____ | |/ /",
+"| | | || | | ||  _  \\/  _  || |\\/| |/ _ \\|  __  |/  _  |/  __||   /",
+"| |_/ || |_| || | | || (_| || |  | | (_) | |  | || (_| || (__ | | \\",
+"|____/ \\____ ||_| |_|\\_____||_|  |_|\\___/|_|  |_|\\_____|\\____||_|\\_\\",
+"       |_____/",
 NULL
 };
 
 static const char *nhlogo_large[] = {
-" ____                        _    _               _    ",
-"|  _ \\                      | |  | |             | | __",
-"| | \\ | _   _  _____  _____ | |__| | _____  ____ | |/ /",
-"| | | || | | ||  _  \\/  _  ||  __  |/  _  |/  __||   / ",
-"| |_/ || |_| || | | || (_| || |  | || (_| || (__ | | \\ ",
-"|____/ \\____ ||_| |_|\\_____||_|  |_|\\_____|\\____||_|\\_\\",
-"       |_____/                         -- Ascend or Die",
+" ____                        __  __       _    _               _",
+"|  _ \\                      |  \\/  |     | |  | |             | | __",
+"| | \\ | _   _  _____  _____ | \\  / | ___ | |__| | _____  ____ | |/ /",
+"| | | || | | ||  _  \\/  _  || |\\/| |/ _ \\|  __  |/  _  |/  __||   /",
+"| |_/ || |_| || | | || (_| || |  | | (_) | |  | || (_| || (__ | | \\",
+"|____/ \\____ ||_| |_|\\_____||_|  |_|\\___/|_|  |_|\\_____|\\____||_|\\_\\",
+"       |_____/",
 NULL
 };
+
 
 const char **get_logo(nh_bool large)
 {
@@ -255,9 +256,10 @@ static void mainmenu(void)
 	    waddstr(basewin, nhlogo[i]);
 	}
 	wattroff(basewin, A_BOLD | COLOR_PAIR(4));
-	mvwaddstr(basewin, LINES-3, 0, copybanner[0]);
-	mvwaddstr(basewin, LINES-2, 0, copybanner[1]);
-	mvwaddstr(basewin, LINES-1, 0, copybanner[2]);
+	mvwaddstr(basewin, LINES-4, 0, copybanner[0]);
+	mvwaddstr(basewin, LINES-3, 0, copybanner[1]);
+	mvwaddstr(basewin, LINES-2, 0, copybanner[2]);
+	mvwaddstr(basewin, LINES-1, 0, copybanner[3]);
 	mvwaddstr(basewin, LINES-2, COLS - strlen(verstr), verstr);
 	wrefresh(basewin);
 
