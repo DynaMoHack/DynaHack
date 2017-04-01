@@ -1,5 +1,5 @@
 /* Copyright (c) 1989 Mike Threepoint				  */
-/* DynaHack may be freely redistributed.  See license for details. */
+/* DynaMoHack may be freely redistributed.  See license for details. */
 
 #ifndef MONFLAG_H
 #define MONFLAG_H

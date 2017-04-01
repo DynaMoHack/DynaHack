@@ -1,5 +1,5 @@
 /* Copyright (c) Stichting Mathematisch Centrum, Amsterdam, 1985. */
-/* DynaHack may be freely redistributed.  See license for details. */
+/* DynaMoHack may be freely redistributed.  See license for details. */
 
 #include "hack.h"
 #include "patchlevel.h"
@@ -165,7 +165,7 @@ static void write_xlentry(FILE *rfile, const struct toptenentry *tt, const char 
 	    SEP "align=%s",
 	    tt->plrole, tt->plrace, tt->plgend, tt->plalign);
 
-    uname = nh_getenv("DYNAHACKUSER");
+    uname = nh_getenv("DYNAMOHACKUSER");
     if (!uname)
 	uname = nh_getenv("USER");
     if (!uname)

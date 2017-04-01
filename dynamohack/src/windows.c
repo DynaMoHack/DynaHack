@@ -1,5 +1,5 @@
 /* Copyright (c) Daniel Thaler, 2011.                             */
-/* DynaHack may be freely redistributed.  See license for details. */
+/* DynaMoHack may be freely redistributed.  See license for details. */
 
 #include "nhcurses.h"
 #include <signal.h>
@@ -95,7 +95,7 @@ void init_curses_ui(void)
     set_term(curses_scr);
 
     if (LINES < 24 || COLS < COLNO) {
-	fprintf(stderr, "Sorry, your terminal is too small for DynaHack. Current: (%x, %x)\n", COLS, LINES);
+	fprintf(stderr, "Sorry, your terminal is too small for DynaMoHack. Current: (%x, %x)\n", COLS, LINES);
 	endwin();
 	exit(0);
     }
@@ -120,7 +120,7 @@ void init_curses_ui(void)
     basewin = stdscr;
 
 #if defined(PDCURSES)
-    PDC_set_title("DynaHack");
+    PDC_set_title("DynaMoHack");
 #if defined(WIN32)
     /* Force the console to use codepage 437. This seems to be the default
      * on european windows, but not on asian systems. Aparrently there is no

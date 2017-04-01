@@ -1,5 +1,5 @@
 /*	Copyright (C) 1990 by Ken Arromdee */
-/* DynaHack may be freely redistributed.  See license for details. */
+/* DynaMoHack may be freely redistributed.  See license for details. */
 
 #include "hack.h"
 

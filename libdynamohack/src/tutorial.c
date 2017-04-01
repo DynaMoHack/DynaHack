@@ -1,5 +1,5 @@
 /*	Copyright 2009, Alex Smith		  */
-/* DynaHack may be freely redistributed.  See license for details. */
+/* DynaMoHack may be freely redistributed.  See license for details. */
 
 #include "hack.h"
 #include "quest.h"

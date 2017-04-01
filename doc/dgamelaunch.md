@@ -23,7 +23,7 @@ Assuming that your dgamelaunch chroot is located at `/opt/dgl-chroot/`:
 
     $ sudo mkdir /opt/dgl-chroot/dynamohack
     $ sudo cp ~/dynamohack/install/dynamohack/dynamohack-data/{dynamohack,license,nhdat} /opt/dgl-chroot/dynamohack/
-    $ sudo cp ~/dynamohack/install/dynamohack/dynamohack-data/libnitrohack.so /opt/dgl-chroot/lib/i386-linux-gnu/
+    $ sudo cp ~/dynamohack/install/dynamohack/dynamohack-data/libdynamohack.so /opt/dgl-chroot/lib/i386-linux-gnu/
 
 The launch script `dynamohack.sh` should not be needed in this case.  Feel free to delete `~/dynamohack/install/` if you wish.
 
@@ -32,7 +32,7 @@ The final locations of these files should look like this:
     /opt/dgl-chroot/dynamohack/dynamohack
     /opt/dgl-chroot/dynamohack/license
     /opt/dgl-chroot/dynamohack/nhdat
-    /opt/dgl-chroot/lib/i386-linux-gnu/libnitrohack.so
+    /opt/dgl-chroot/lib/i386-linux-gnu/libdynamohack.so
 
 Set the correct user and group for the files in `/opt/dgl-chroot/dynamohack/`:
 
@@ -45,7 +45,7 @@ Set the correct user and group for the files in `/opt/dgl-chroot/dynamohack/`:
 Use the following commands to work out which libraries you'll need to copy into your dgamelaunch chroot:
 
     $ ldd /opt/dgl-chroot/dynamohack/dynamohack
-    $ ldd /opt/dgl-chroot/lib/i386-linux-gnu/libnitrohack.so
+    $ ldd /opt/dgl-chroot/lib/i386-linux-gnu/libdynamohack.so
 
 These libraries should go in `/opt/dgl-chroot/lib/i386-linux-gnu/`, e.g.
 
@@ -82,7 +82,7 @@ With all the files needed for DynaMoHack in place, you will need to edit `/opt/d
       inprogressdir = "%rinprogress-dyna/"
       ttyrecdir = "%ruserdata/%n/ttyrec/dynamohack/"
       commands = setenv "LANG" "en_US.UTF-8",
-                 setenv "DYNAHACKUSER" "%n"
+                 setenv "DYNAMOHACKUSER" "%n"
     }
 
 Notes:
@@ -92,7 +92,7 @@ Notes:
  * The `inprogressdir` *must* exist; make it as so: `sudo mkdir /opt/dgl-chroot/dgldir/inprogress-dyna`.
  * `ttyrecdir` is required if you want ttyrecs for play sessions *and* for spectating.  You may want to create this directory in the `commands[register]` and `commands[login]` dgamelaunch hooks.
  * `setenv "LANG" "en_US.UTF-8"` is required for DynaMoHack to display Unicode graphics.
- * `setenv "DYNAHACKUSER" "%n"` sets the username that is stored in the "name" field in the `xlogfile` when games end ("charname" stores the name entered for each character).
+ * `setenv "DYNAMOHACKUSER" "%n"` sets the username that is stored in the "name" field in the `xlogfile` when games end ("charname" stores the name entered for each character).
 
 At the time of writing (August 2015) there is no support for mail (so no spectator messages) or extrainfo (so no dungeon depth/location data in the watch menu) in DynaMoHack.
 

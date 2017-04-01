@@ -1,5 +1,5 @@
 /*	Copyright (c) 1989 by Jean-Christophe Collet */
-/* DynaHack may be freely redistributed.  See license for details. */
+/* DynaMoHack may be freely redistributed.  See license for details. */
 
 /*
  * This file contains the different functions designed to manipulate the

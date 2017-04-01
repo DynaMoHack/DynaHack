@@ -1,5 +1,5 @@
 /* Copyright (c) David Cohrs, 1992				  */
-/* DynaHack may be freely redistributed.  See license for details. */
+/* DynaMoHack may be freely redistributed.  See license for details. */
 
 #ifndef WINPROCS_H
 #define WINPROCS_H

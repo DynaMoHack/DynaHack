@@ -1,5 +1,5 @@
 /*	Monster symbols and creation information rev 1.0	  */
-/* DynaHack may be freely redistributed.  See license for details. */
+/* DynaMoHack may be freely redistributed.  See license for details. */
 
 #ifndef MONSYM_H
 #define MONSYM_H

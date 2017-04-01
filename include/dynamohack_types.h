@@ -229,7 +229,7 @@ enum nh_input_status {
     /* for a status >= GAME_OVER exit the command loop */
     GAME_OVER, /* i.e. player died */
     GAME_SAVED,
-    GAME_PANICKED, /* something went wrong in libnitrohack and panic() was called */
+    GAME_PANICKED, /* something went wrong in libdynamohack and panic() was called */
     ERR_FORCED_EXIT, /* exit from the command loop was forced by a call to nh_exit_game */
     ERR_GAME_NOT_RUNNING /* possibilities: the init sequence was incorrect and
                                            the game is not running YET

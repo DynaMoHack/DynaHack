@@ -1,5 +1,5 @@
 /* Copyright (c) Daniel Thaler, 2011.                             */
-/* DynaHack may be freely redistributed.  See license for details. */
+/* DynaMoHack may be freely redistributed.  See license for details. */
 
 #include "nhcurses.h"
 #include <time.h>
@@ -30,7 +30,7 @@ nh_bool get_gamedir(enum game_dirs dirtype, wchar_t *buf)
 	 */
 	if (!SUCCEEDED(SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, 0, appPath)))
 	    return FALSE;
-	_snwprintf(nhPath, MAX_PATH, L"%s\\DynaHack", appPath);
+	_snwprintf(nhPath, MAX_PATH, L"%s\\DynaMoHack", appPath);
 	nhPath[MAX_PATH - 1] = 0;
 	_wmkdir(nhPath);
     }
@@ -69,12 +69,12 @@ nh_bool get_gamedir(enum game_dirs dirtype, char *buf)
 	/* look in regular location */
 	envval = getenv("XDG_CONFIG_HOME");
 	if (envval) {
-	    snprintf(buf, BUFSZ, "%s/DynaHack/%s", envval, subdir);
+	    snprintf(buf, BUFSZ, "%s/DynaMoHack/%s", envval, subdir);
 	} else {
 	    envval = getenv("HOME");
 	    if (!envval) /* HOME not set? just give up... */
 		return FALSE;
-	    snprintf(buf, BUFSZ, "%s/.config/DynaHack/%s", envval, subdir);
+	    snprintf(buf, BUFSZ, "%s/.config/DynaMoHack/%s", envval, subdir);
 	}
     }
 

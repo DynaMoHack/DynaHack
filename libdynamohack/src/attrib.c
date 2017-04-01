@@ -1,5 +1,5 @@
 /*	Copyright 1988, 1989, 1990, 1992, M. Stephenson		  */
-/* DynaHack may be freely redistributed.  See license for details. */
+/* DynaMoHack may be freely redistributed.  See license for details. */
 
 /*  attribute modification routines. */
 

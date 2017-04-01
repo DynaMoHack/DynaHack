@@ -1,5 +1,5 @@
 /* Copyright (c) Kenneth Lorber, Bethesda, Maryland, 1993. */
-/* DynaHack may be freely redistributed.  See license for details. */
+/* DynaMoHack may be freely redistributed.  See license for details. */
 
 #ifndef DLB_H
 #define DLB_H

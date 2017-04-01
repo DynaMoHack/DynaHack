@@ -1,5 +1,5 @@
 /*	Copyright 1988, 1989 by Ken Arromdee				*/
-/* DynaHack may be freely redistributed.  See license for details. */
+/* DynaMoHack may be freely redistributed.  See license for details. */
 
 /*
  * Support code for "rogue"-style level.

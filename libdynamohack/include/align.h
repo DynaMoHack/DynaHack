@@ -1,5 +1,5 @@
 /* Copyright (c) Mike Stephenson, Izchak Miller  1991.		  */
-/* DynaHack may be freely redistributed.  See license for details. */
+/* DynaMoHack may be freely redistributed.  See license for details. */
 
 #ifndef ALIGN_H
 #define ALIGN_H

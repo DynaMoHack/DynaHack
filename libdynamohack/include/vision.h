@@ -1,5 +1,5 @@
 /* Copyright (c) Dean Luick, with acknowledgements to Dave Cohrs, 1990. */
-/* DynaHack may be freely redistributed.  See license for details.	*/
+/* DynaMoHack may be freely redistributed.  See license for details.	*/
 
 #ifndef VISION_H
 #define VISION_H

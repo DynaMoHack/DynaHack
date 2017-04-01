@@ -1,5 +1,5 @@
 /*	Copyright (c) 1989 Janet Walz, Mike Threepoint */
-/* DynaHack may be freely redistributed.  See license for details. */
+/* DynaMoHack may be freely redistributed.  See license for details. */
 
 #include "hack.h"
 #include "edog.h"

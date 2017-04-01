@@ -1,4 +1,4 @@
-Compiling DynaHack on OS X
+Compiling DynaMoHack on OS X
 ==========================
 
 
@@ -21,12 +21,12 @@ Until that bug is merged upstream, you'll need to install the patched version:
     brew install https://gist.github.com/gcatlin/3098450/raw/8cc12bc4d095e654876744cdfa6eb57a24186589/ncurses.rb
 
 
-3. Get the DynaHack source code
+3. Get the DynaMoHack source code
 -------------------------------
 
     cd ~
-    git clone -b unnethack git://github.com/tung/DynaHack.git dynahack
-    cd dynahack
+    git clone -b unnethack git://github.com/tung/DynaMoHack.git dynamohack
+    cd dynamohack
 
 
 4. Build the game
@@ -34,7 +34,7 @@ Until that bug is merged upstream, you'll need to install the patched version:
 
 Set the installation location:
 
-    export NH_INSTALL_DIR=$HOME/dynahack
+    export NH_INSTALL_DIR=$HOME/dynamohack
     mkdir build
     cd build
     cmake -DUSE_OSX_HOMEBREW_CURSES=TRUE \

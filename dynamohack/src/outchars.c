@@ -1,5 +1,5 @@
 /* Copyright (c) Daniel Thaler, 2011 */
-/* DynaHack may be freely redistributed.  See license for details. */
+/* DynaMoHack may be freely redistributed.  See license for details. */
 
 /* NOTE: This file is utf-8 encoded; saving with a non utf-8 aware editor WILL
  * damage some symbols */
@@ -281,7 +281,7 @@ static void write_symlist(int fd, const struct curses_symdef *list, int len)
 }
 
 static const char uniconf_header[] =
-"# Unicode symbol configuration for DynaHack\n"
+"# Unicode symbol configuration for DynaMoHack\n"
 "# Lines that begin with '#' are commented out.\n"
 "# Change the '#' to an '!' to activate a line.\n";
 

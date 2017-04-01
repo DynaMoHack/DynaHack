@@ -1,5 +1,5 @@
 /* Copyright 1988, Mike Stephenson				  */
-/* DynaHack may be freely redistributed.  See license for details. */
+/* DynaMoHack may be freely redistributed.  See license for details. */
 
 /*	attrib.h - Header file for character class processing. */
 

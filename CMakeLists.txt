@@ -86,11 +86,11 @@ else ()
     set (LIB_TYPE STATIC)
 endif ()
 
-# DynaHack server currently uses several Linux-specific apis.
+# DynaMoHack server currently uses several Linux-specific apis.
 # Generalizing the code to the point where it will work on other systems
 # is not impossible, but the work has not been done.
 if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
-    set (ENABLE_SERVER FALSE CACHE BOOL "Build the DynaHack network server")
+    set (ENABLE_SERVER FALSE CACHE BOOL "Build the DynaMoHack network server")
 else ()
     set (ENABLE_SERVER FALSE)
 endif ()

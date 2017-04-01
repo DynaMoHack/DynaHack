@@ -1,5 +1,5 @@
 /* Copyright (c) Daniel Thaler, 2011.                             */
-/* DynaHack may be freely redistributed.  See license for details. */
+/* DynaMoHack may be freely redistributed.  See license for details. */
 
 #include "hack.h"
 #include "dlb.h"
@@ -188,7 +188,7 @@ void replay_set_logfile(int logfd)
 	log_finish(LS_IN_PROGRESS);
     
     if (!lock_fd(logfd, 1)) {
-	raw_printf("The game log is locked by another DynaHack process. Aborting.");
+	raw_printf("The game log is locked by another DynaMoHack process. Aborting.");
 	terminate();
     }
     logfile = logfd;

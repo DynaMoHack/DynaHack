@@ -1,4 +1,4 @@
-# Magical Object Properties (ported from GruntHack to DynaHack)
+# Magical Object Properties (ported from GruntHack to DynaMoHack)
 
 Normally in NetHack, objects have magical properties depending on their base
 object type, e.g. speed boots grant speed.  GruntHack adds to NetHack the
@@ -7,7 +7,7 @@ properties, e.g. water walking boots of speed, leather gloves of speed, amulet
 of unchanging and speed, ring of adornment and speed, etc. similar to "ego"
 items in Angband.
 
-This document describes this feature as ported from GruntHack to DynaHack,
+This document describes this feature as ported from GruntHack to DynaMoHack,
 extracted and isolated from thousands of lines of unrelated changes that
 GruntHack makes to NetHack.
 
@@ -163,7 +163,7 @@ where difficulty in NetHack and most of its variants is the average of the
 current dungeon level and the player's experience level.
 
 [Aside: The difficulty formula is true of NitroHack, but not of NetHack4, and
-DynaHack adopts NetHack4's save system, pulling in the (IMO unnecessary) object
+DynaMoHack adopts NetHack4's save system, pulling in the (IMO unnecessary) object
 migration chain removal and thus the change of level difficulty to be simply
 the current dungeon level, without the player's experience level.]
 
@@ -678,7 +678,7 @@ struct obj *create_oprop(struct obj *otmp, boolean allow_detrimental)
 ```
 
 [Aside: There's a struct level argument to create_oprop() that precedes the
-two above, but it's specific to DynaHack and NitroHack.]
+two above, but it's specific to DynaMoHack and NitroHack.]
 
 In other words, create_oprop() either adds properties to an existing object, or
 creates one of its own and adds properties to that object.
@@ -767,7 +767,7 @@ with "magical".  This is done by setting the special ITEM_MAGICAL bit in the
 oprops_known of an object, the same way bknown is set when priests look at an
 object, in examine_object().
 
-examine_object() is a DynaHack/NitroHack-specific function that splits out the
+examine_object() is a DynaMoHack/NitroHack-specific function that splits out the
 object state mutating front matter of xname() so that it can take a const
 struct obj * instead of just struct obj *.  Non-NitroHack NetHack forks can
 safely put this wherever bknown is set for priests, usually the top of xname().
@@ -1495,7 +1495,7 @@ changed.
 A quick guide to dealing with all of the refactoring:
 
  * If you see `lev` and `level` passed around as arguments, they can be safely
-   ignored for the most part: they're specific to DynaHack/NitroHack and a
+   ignored for the most part: they're specific to DynaMoHack/NitroHack and a
    bunch of them are even specific to this development branch/fork of it.  If
    you're curious, the extra argument in all of these functions was to prevent
    crashes in NitroHack due to dereferencing a level that didn't exist at that
@@ -1624,7 +1624,7 @@ how many items were seen being destroyed (i.e. a message was given), and the
 actual number of items destroyed is instead stored in a caller-supplied int
 pointer.
 
-Before continuing, note that DynaHack splits out the effects for Vorpal
+Before continuing, note that DynaMoHack splits out the effects for Vorpal
 Blade/The Tsurugi of Muramasa (beheading and bisecting) and Stormbringer (life
 draining) into helper functions called artifact_hit_drainlife() and
 artifact_hit_behead() respectively.  I would recommend this change even to
@@ -1710,11 +1710,11 @@ it could be detonation, doing 4d4 fire damage plus subjecting the inventory to
 fire!  This is another piece of low-hanging fruit which I'd deal with right now
 if I wasn't already exhausted from the porting effort.
 
-A DynaHack/NitroHack-specific quirk is that the floor object sidebar doesn't
+A DynaMoHack/NitroHack-specific quirk is that the floor object sidebar doesn't
 update when an object that is thrown by an explosion lands by the hero's feet.
 Since that sidebar is called in the same conditions as the (annoying) object
 pile prompt that NetHack gives when moving, it's hard to imagine a solution for
-DynaHack/NitroHack that would generalize well for NetHack forks that aren't
+DynaMoHack/NitroHack that would generalize well for NetHack forks that aren't
 based on it.
 
 Object properties are supposed to make both players and monsters more powerful,
@@ -1724,7 +1724,7 @@ choosing a weapon is quite fixed on the base object types of weapons; I'm not
 even sure it considers enchantment, let alone a way to consider attack
 properties.
 
-DynaHack includes the sortloot patch which makes browsing large piles of
+DynaMoHack includes the sortloot patch which makes browsing large piles of
 objects much easier.  It should probably give priority to objects that have
 properties, especially given their current rarity; right now the only
 distinction they get from mundane objects is their different name.

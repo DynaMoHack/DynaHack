@@ -1,5 +1,5 @@
 /*	Copyright (c) Izchak Miller, 1992.			  */
-/* DynaHack may be freely redistributed.  See license for details. */
+/* DynaMoHack may be freely redistributed.  See license for details. */
 
 #include "hack.h"
 

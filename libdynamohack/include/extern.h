@@ -1,5 +1,5 @@
 /* Copyright (c) Steve Creps, 1988.				  */
-/* DynaHack may be freely redistributed.  See license for details. */
+/* DynaMoHack may be freely redistributed.  See license for details. */
 
 #ifndef EXTERN_H
 #define EXTERN_H

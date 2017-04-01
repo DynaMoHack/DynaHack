@@ -1,5 +1,5 @@
 /* Copyright 1994, Dean Luick					  */
-/* DynaHack may be freely redistributed.  See license for details. */
+/* DynaMoHack may be freely redistributed.  See license for details. */
 
 #ifndef TIMEOUT_H
 #define TIMEOUT_H

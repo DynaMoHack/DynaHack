@@ -1,5 +1,5 @@
 /* Copyright (c) 1996 by Jean-Christophe Collet	 */
-/* DynaHack may be freely redistributed.  See license for details. */
+/* DynaMoHack may be freely redistributed.  See license for details. */
 
 #include "hack.h"
 #include "lev.h"

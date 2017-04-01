@@ -1,5 +1,5 @@
 /* Copyright (c) Stichting Mathematisch Centrum, Amsterdam, 1985. */
-/* DynaHack may be freely redistributed.  See license for details. */
+/* DynaMoHack may be freely redistributed.  See license for details. */
 
 #include "nhcurses.h"
 #include <sys/stat.h>
@@ -214,7 +214,7 @@ static char** init_game_paths(const char *argv0)
 
 #else
     /* Avoid a trap for people trying to port this. */
-#error You must run DynaHack under Win32 or Linux.
+#error You must run DynaMoHack under Win32 or Linux.
 #endif
 
     /* alloc memory for the paths and append slashes as required */
@@ -383,7 +383,7 @@ static void process_args(int argc, char *argv[])
 	switch (argv[0][1]) {
 	case '-':
 	    if (!strcmp(argv[0], "--help")) {
-		puts("Usage: dynahack [OPTIONS]");
+		puts("Usage: dynamohack [OPTIONS]");
 		puts("");
 		puts("--help      show this help and exit");
 		puts("--version   show version number and exit");
@@ -398,7 +398,7 @@ static void process_args(int argc, char *argv[])
 		puts("-U dir      override the user directory");
 		exit(0);
 	    } else if (!strcmp(argv[0], "--version")) {
-		printf("DynaHack version %d.%d.%d\n",
+		printf("DynaMoHack version %d.%d.%d\n",
 		       VERSION_MAJOR, VERSION_MINOR, PATCHLEVEL);
 		exit(0);
 	    } else {

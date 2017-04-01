@@ -1,5 +1,5 @@
 /* Copyright (c) Daniel Thaler, 2011				  */
-/* DynaHack may be freely redistributed.  See license for details. */
+/* DynaMoHack may be freely redistributed.  See license for details. */
 
 #ifndef NHCURSES_H
 #define NHCURSES_H
@@ -106,7 +106,7 @@ typedef wchar_t fnchar;
 #endif
 
 #ifndef DYNAMOHACKDIR
-#define DYNAMOHACKDIR "/usr/share/DynaHack/"
+#define DYNAMOHACKDIR "/usr/share/DynaMoHack/"
 #endif
 
 #define KEY_ESC 27

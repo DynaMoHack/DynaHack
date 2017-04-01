@@ -1,5 +1,5 @@
 /* Copyright (c) D. Cohrs, 1993. */
-/* DynaHack may be freely redistributed.  See license for details. */
+/* DynaMoHack may be freely redistributed.  See license for details. */
 
 #include "hack.h"
 

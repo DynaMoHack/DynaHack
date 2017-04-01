@@ -1,5 +1,5 @@
 /* Copyright (c) 1989 by Jean-Christophe Collet			  */
-/* DynaHack may be freely redistributed.  See license for details. */
+/* DynaMoHack may be freely redistributed.  See license for details. */
 
 #ifndef SP_LEV_H
 #define SP_LEV_H

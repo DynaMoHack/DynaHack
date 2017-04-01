@@ -1,5 +1,5 @@
 /* Copyright (c) Daniel Thaler, 2011. */
-/* The DynaHack server may be freely redistributed under the terms of either:
+/* The DynaMoHack server may be freely redistributed under the terms of either:
  *  - the NetHack license
  *  - the GNU General Public license v2 or later
  */

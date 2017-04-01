@@ -7,11 +7,11 @@ check_include_files(postgresql/libpq-fe.h LIBPQFE_IN_SUBDIR)
 find_library(JANSSON_LIB jansson DOC "Library for encoding and decoding JSON data")
 find_library(PQ_LIB pq DOC "PostgreSQL client library")
 
-set (NH_SERVER_CONFIG_FILE "/etc/DynaHack_server/nhserver.conf"
+set (NH_SERVER_CONFIG_FILE "/etc/DynaMoHack_server/nhserver.conf"
      CACHE STRING "default config file")
 set (NH_SERVER_LOG_FILE "/var/log/nhserver.log"
      CACHE STRING "default log file")
-set (NH_SERVER_WORK_DIR "/var/lib/DynaHack/"
+set (NH_SERVER_WORK_DIR "/var/lib/DynaMoHack/"
      CACHE STRING "default work directory")
 
 set (NH_SERVER_SRC

@@ -1,5 +1,5 @@
 /* Copyright (c) J. C. Collet, M. Stephenson and D. Cohrs, 1992   */
-/* DynaHack may be freely redistributed.  See license for details. */
+/* DynaMoHack may be freely redistributed.  See license for details. */
 
 #include "hack.h"
 #include "sp_lev.h"

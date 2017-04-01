@@ -7,15 +7,15 @@
 #ifndef DYNAMOHACK_H
 #define DYNAMOHACK_H
 
-/* DynaHack 0.6.0 */
+/* DynaMoHack 0.0.1 */
 #define VERSION_MAJOR	0
-#define VERSION_MINOR	6
-#define PATCHLEVEL	0
+#define VERSION_MINOR	0
+#define PATCHLEVEL	1
 
 #include "dynamohack_types.h"
 
 #if !defined(STATIC_BUILD)
-# if defined (libdynamohack_EXPORTS)/* defined by cmake while building libnitrohack */
+# if defined (libdynamohack_EXPORTS)/* defined by cmake while building libdynamohack */
 #  if defined (_MSC_VER)
 #   define EXPORT __declspec(dllexport)
 #  else /* gcc & clang with -fvisibility=hidden need this for exported syms */

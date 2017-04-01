@@ -1,5 +1,5 @@
 /* Copyright (c) Mike Threepoint, 1989.				  */
-/* DynaHack may be freely redistributed.  See license for details. */
+/* DynaMoHack may be freely redistributed.  See license for details. */
 
 #ifndef OBJECTS_PASS_2_
 /* first pass */

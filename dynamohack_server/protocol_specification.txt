@@ -1,4 +1,4 @@
-DynaHack Network Protocol v1
+DynaMoHack Network Protocol v1
 ============================
 
 0) Basics

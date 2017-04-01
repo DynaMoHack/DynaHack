@@ -1,5 +1,5 @@
 /* Copyright 1986, M. Stephenson				  */
-/* DynaHack may be freely redistributed.  See license for details. */
+/* DynaMoHack may be freely redistributed.  See license for details. */
 
 #ifndef SPELL_H
 #define SPELL_H

@@ -1,5 +1,5 @@
 /* Copyright (c) 1990 by Jean-Christophe Collet			  */
-/* DynaHack may be freely redistributed.  See license for details. */
+/* DynaMoHack may be freely redistributed.  See license for details. */
 
 #ifndef RECT_H
 #define RECT_H

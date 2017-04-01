@@ -1,14 +1,14 @@
 /* Copyright (c) Daniel Thaler, 2011. */
-/* The DynaHack server may be freely redistributed under the terms of either:
+/* The DynaMoHack server may be freely redistributed under the terms of either:
  *  - the NetHack license
  *  - the GNU General Public license v2 or later
  */
 
 /*
- * DynaHack server core.
+ * DynaMoHack server core.
  *
  * The code is designed to meet the following goals/constraints:
- *  - Each DynaHack game MUST run in it's own process. The game is the
+ *  - Each DynaMoHack game MUST run in it's own process. The game is the
  *    anti-thesis of thread-safe. Writing a threaded server would require major
  *    work on the game code.
  *
@@ -16,7 +16,7 @@
  *    This is required to more easily support web clients. In that scenario
  *    Some javascript in a browser issues an XMLHttpRequest to a web-server,
  *    where a script performs the trivial transformation from request parameters
- *    to a JSON string which it sends on (via localhost) to the DynaHack server.
+ *    to a JSON string which it sends on (via localhost) to the DynaMoHack server.
  *    The NH server responds with some more JSON which represents game state.
  *    Since the request is now complete from their point of view, neither the
  *    web server nor the web client should be required to maintain a connection

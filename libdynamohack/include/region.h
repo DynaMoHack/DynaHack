@@ -1,5 +1,5 @@
 /* Copyright (c) 1996 by Jean-Christophe Collet			  */
-/* DynaHack may be freely redistributed.  See license for details. */
+/* DynaMoHack may be freely redistributed.  See license for details. */
 
 #ifndef REGION_H
 #define REGION_H
