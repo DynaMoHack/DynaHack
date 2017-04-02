@@ -756,22 +756,7 @@ static void write_keymap(void)
 }
 
 
-#if defined(WIN32) && defined (PDCURSES)
-/* PDCurses for WIN32 has special keycodes for alt-combinations */
-static unsigned int keytrans(unsigned int key)
-{
-    unsigned int unmeta = key & (~0x0080);
-
-    if (key != unmeta && 'a' <= unmeta && unmeta <= 'z')
-	return unmeta - 'a' + ALT_A;
-    if (key != unmeta && '0' <= unmeta && unmeta <= '9')
-	return unmeta - '0' + ALT_0;
-
-    return key;
-}
-#else
 #define keytrans(x) ((unsigned int)(x))
-#endif
 
 
 /* initialize the keymap with the default keys suggested by the game */
@@ -787,12 +772,6 @@ static void init_keymap(void)
     keymap[KEY_DOWN] = find_command("south");
     keymap[KEY_LEFT] = find_command("west");
     keymap[KEY_RIGHT] = find_command("east");
-#if defined(PDCURSES)
-    keymap[KEY_A2] = find_command("north");
-    keymap[KEY_C2] = find_command("south");
-    keymap[KEY_B1] = find_command("west");
-    keymap[KEY_B3] = find_command("east");
-#endif
     keymap[KEY_A1] = find_command("north_west");
     keymap[KEY_A3] = find_command("north_east");
     keymap[KEY_C1] = find_command("south_west");

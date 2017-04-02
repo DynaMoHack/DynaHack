@@ -451,7 +451,6 @@ static void netgame_mainmenu(struct server_info *server)
     int menuresult[1];
     char buf[BUFSZ];
     int n = 1, logowidth, logoheight, i;
-    const char **nhlogo;
     char verstr[32], server_verstr[32];
 
     static struct nh_menuitem netmenu_items[] = {
@@ -470,12 +469,8 @@ static void netgame_mainmenu(struct server_info *server)
 	    nhnet_server_ver.minor, nhnet_server_ver.patchlevel);
     
     while (n > 0) {
-	nhlogo = get_logo(TRUE);
 	logowidth = strlen(nhlogo[0]);
-	if (COLS < logowidth) {
-	    nhlogo = get_logo(FALSE);
-	    logowidth = strlen(nhlogo[0]);
-	}
+
 	for (logoheight = 0; nhlogo[logoheight]; logoheight++)
 	    /* empty */;
 	wclear(basewin);

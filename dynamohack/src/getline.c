@@ -135,9 +135,6 @@ static void hooked_curses_getlin(const char *query, char *buf,
 
 	    case KEY_BACKSPACE: /* different terminals send different codes... */
 	    case KEY_BACKDEL:
-#if defined(PDCURSES)
-	    case 8: /* ^H */
-#endif
 		if (gldat->pos == 0) continue;
 		gldat->pos--;
 		/* fall through */

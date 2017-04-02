@@ -1,22 +1,6 @@
 # build the curses window port of the game
 
 
-if (NOT WIN32)
-    set (USE_PDCURSES FALSE CACHE BOOL "Use PDCurses?")
-    set (PDCURSES_LIBNAME "XCurses")
-else ()
-    set (USE_PDCURSES TRUE)
-    set (PDCURSES_LIBNAME "pdcurses")
-endif ()
-
-
-if (USE_PDCURSES)
-    set (PDCURSES_LIB_DIR "" CACHE PATH "Location of the pdcurses library")
-    set (PDCURSES_INC_DIR "" CACHE PATH "Location of the pdcurses header")
-    link_directories (${PDCURSES_LIB_DIR})
-    include_directories (${PDCURSES_INC_DIR})
-    add_definitions (-DPDCURSES)
-endif ()
 if (USE_OSX_HOMEBREW_CURSES)
     add_definitions(-DUSE_OSX_HOMEBREW_CURSES)
 endif()
@@ -76,14 +60,10 @@ else ()
     endif ()
 endif ()
 
-if (USE_PDCURSES)
-    target_link_libraries (dynamohack_curses ${PDCURSES_LIBNAME})
+if(USE_OSX_HOMEBREW_CURSES)
+    target_link_libraries (dynamohack_curses ncurses)
 else ()
-    if(USE_OSX_HOMEBREW_CURSES)
-        target_link_libraries (dynamohack_curses ncurses)
-    else ()
-        target_link_libraries (dynamohack_curses ncursesw)
-    endif ()
+    target_link_libraries (dynamohack_curses ncursesw)
 endif ()
 
 if (ENABLE_NETCLIENT)

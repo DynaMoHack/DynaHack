@@ -47,7 +47,7 @@ struct nh_menuitem mainmenu_items[] = {
 };
 
 
-static const char *nhlogo_small[] = {
+const char *nhlogo[] = {
 " ____                        __  __       _    _               _",
 "|  _ \\                      |  \\/  |     | |  | |             | | __",
 "| | \\ | _   _  _____  _____ | \\  / | ___ | |__| | _____  ____ | |/ /",
@@ -57,23 +57,6 @@ static const char *nhlogo_small[] = {
 "       |_____/",
 NULL
 };
-
-static const char *nhlogo_large[] = {
-" ____                        __  __       _    _               _",
-"|  _ \\                      |  \\/  |     | |  | |             | | __",
-"| | \\ | _   _  _____  _____ | \\  / | ___ | |__| | _____  ____ | |/ /",
-"| | | || | | ||  _  \\/  _  || |\\/| |/ _ \\|  __  |/  _  |/  __||   /",
-"| |_/ || |_| || | | || (_| || |  | | (_) | |  | || (_| || (__ | | \\",
-"|____/ \\____ ||_| |_|\\_____||_|  |_|\\___/|_|  |_|\\_____|\\____||_|\\_\\",
-"       |_____/",
-NULL
-};
-
-
-const char **get_logo(nh_bool large)
-{
-    return large ? nhlogo_large : nhlogo_small;
-}
 
 
 #ifdef UNIX
@@ -236,17 +219,12 @@ static void mainmenu(void)
     int menuresult[1];
     int n = 1, logowidth, logoheight, i;
     const char * const *copybanner = nh_get_copyright_banner();
-    const char **nhlogo;
     char verstr[32];
     sprintf(verstr, "Version %d.%d.%d", VERSION_MAJOR, VERSION_MINOR, PATCHLEVEL);
     
     while (n >= 0) {
-	nhlogo = get_logo(TRUE);
 	logowidth = strlen(nhlogo[0]);
-	if (COLS < logowidth) {
-	    nhlogo = get_logo(FALSE);
-	    logowidth = strlen(nhlogo[0]);
-	}
+
 	for (logoheight = 0; nhlogo[logoheight]; logoheight++)
 	    /* empty */;
 	wclear(basewin);

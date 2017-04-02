@@ -5,17 +5,12 @@
 #include <signal.h>
 #include <locale.h>
 
-#if !defined(PDCURSES)
 /*
  * _nc_unicode_locale(): return true, if the locale supports unicode
  * ncurses has _nc_unicode_locale(), but it is not part of the curses API.
  * For portability this function should probably be reimplemented.
  */
 extern int _nc_unicode_locale(void);
-#else
-# define set_escdelay(x)
-# define _nc_unicode_locale() (1) /* ... as a macro, for example ... */
-#endif
 
 WINDOW *basewin, *mapwin, *msgwin, *statuswin, *sidebar;
 struct gamewin *firstgw, *lastgw;
@@ -118,19 +113,6 @@ void init_curses_ui(void)
      * crashes. So basewin is a copy of stdscr which is known to be NULL before
      * curses is inited. */
     basewin = stdscr;
-
-#if defined(PDCURSES)
-    PDC_set_title("DynaMoHack");
-#if defined(WIN32)
-    /* Force the console to use codepage 437. This seems to be the default
-     * on european windows, but not on asian systems. Aparrently there is no
-     * such thing as a Unicode console in windows (EPIC FAIL!) and all output
-     * characters are always transformed according to a code page. */
-    SetConsoleOutputCP(437);
-    if (settings.win_height > 0 && settings.win_width > 0)
-	resize_term(settings.win_height, settings.win_width);
-#endif
-#endif
 }
 
 
@@ -513,9 +495,6 @@ int nh_wgetch(WINDOW *win)
 
 	if (key == KEY_RESIZE) {
 	    key = 0;
-#ifdef PDCURSES
-	    resize_term(0, 0);
-#endif
 	    handle_resize();
 	}
 
@@ -537,13 +516,6 @@ int nh_wgetch(WINDOW *win)
 #endif
 
     } while (!key);
-
-#if defined(PDCURSES)
-    /* PDCurses provides exciting new names for the enter key.
-     * Translate these here, instead of checking for them all over the place. */
-    if (key == PADENTER)
-	key = '\r';
-#endif
 
     return key;
 }
@@ -680,4 +652,3 @@ void curses_delay_output(void)
     usleep(50 * 1000);
 #endif
 }
-
