@@ -79,23 +79,10 @@ typedef wchar_t fnchar;
 # include "dynamohack_client.h"
 #endif
 
-#ifndef PDCURSES
-# ifdef USE_OSX_HOMEBREW_CURSES
-# include <ncurses/curses.h>
-# else
-# include <ncursesw/curses.h>
-# endif
+#ifdef USE_OSX_HOMEBREW_CURSES
+#include <ncurses/curses.h>
 #else
-# define PDC_WIDE
-# ifdef WIN32
-#  include <curses.h>
-/* Windows support for Underline is a joke: it simply switches to color 1 (dark blue!) */
-#  undef A_UNDERLINE
-#  define A_UNDERLINE A_NORMAL
-# else
-#  include <xcurses.h>
-# endif
-# define CCHARW_MAX 1 /* not set by pdcurses */
+#include <ncursesw/curses.h>
 #endif
 
 #ifndef max
@@ -362,7 +349,7 @@ extern void show_keymap_menu(nh_bool readonly);
 extern enum nh_direction key_to_dir(int key);
 
 /* main.c */
-extern const char **get_logo(nh_bool large);
+extern const char *nhlogo[];
 
 /* map.c */
 extern int get_map_key(int place_cursor);
