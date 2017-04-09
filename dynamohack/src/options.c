@@ -163,70 +163,70 @@ struct nh_boolopt_map boolopt_map[] = {
 static nh_bool option_change_callback(struct nh_option_desc *option)
 {
     if (!strcmp(option->name, "classic_status") ||
-	!strcmp(option->name, "darkmsg") ||
-	!strcmp(option->name, "frame") ||
-	!strcmp(option->name, "frame_hp_color") ||
-	!strcmp(option->name, "status3") ||
-	!strcmp(option->name, "sidebar")) {
-	rebuild_ui();
-	return TRUE;
+            !strcmp(option->name, "darkmsg") ||
+            !strcmp(option->name, "frame") ||
+            !strcmp(option->name, "frame_hp_color") ||
+            !strcmp(option->name, "status3") ||
+            !strcmp(option->name, "sidebar")) {
+        rebuild_ui();
+        return TRUE;
     }
     else if (!strcmp(option->name, "showexp") ||
-	!strcmp(option->name, "showscore") ||
-	!strcmp(option->name, "time")) {
-	curses_update_status(NULL);
+            !strcmp(option->name, "showscore") ||
+            !strcmp(option->name, "time")) {
+        curses_update_status(NULL);
     }
     else if (!strcmp(option->name, "darkroom") ||
-	!strcmp(option->name, "hilite_peaceful") ||
-	!strcmp(option->name, "hilite_pet") ||
-	!strcmp(option->name, "mapcolors")) {
-	draw_map(player.x, player.y);
+            !strcmp(option->name, "hilite_peaceful") ||
+            !strcmp(option->name, "hilite_pet") ||
+            !strcmp(option->name, "mapcolors")) {
+        draw_map(player.x, player.y);
     }
     else if (!strcmp(option->name, "darkgray")) {
-	set_darkgray();
-	draw_map(player.x, player.y);
+        set_darkgray();
+        draw_map(player.x, player.y);
     }
     else if (!strcmp(option->name, "dungeon_name")) {
-	settings.dungeon_name = option->value.e;
-	rebuild_ui();
+        settings.dungeon_name = option->value.e;
+        rebuild_ui();
     }
     else if (!strcmp(option->name, "menu_headings")) {
-	settings.menu_headings = option->value.e;
+        settings.menu_headings = option->value.e;
     }
     else if (!strcmp(option->name, "graphics")) {
-	settings.graphics = option->value.e;
-	switch_graphics(option->value.e);
-	if (ui_flags.ingame) {
-	    draw_map(player.x, player.y);
-	    redraw_game_windows();
-	}
+        settings.graphics = option->value.e;
+        switch_graphics(option->value.e);
+        if (ui_flags.ingame) {
+            draw_map(player.x, player.y);
+            redraw_game_windows();
+        }
     }
     else if (!strcmp(option->name, "scores_top")) {
-	settings.end_top = option->value.i;
+        settings.end_top = option->value.i;
     }
     else if (!strcmp(option->name, "scores_around")) {
-	settings.end_around = option->value.i;
+        settings.end_around = option->value.i;
     }
     else if (!strcmp(option->name, "optstyle")) {
-	settings.optstyle = option->value.e;
+        settings.optstyle = option->value.e;
     }
     else if (!strcmp(option->name, "msgheight")) {
-	settings.msgheight = option->value.i;
-	rebuild_ui();
+        settings.msgheight = option->value.i;
+        rebuild_ui();
     }
     else if (!strcmp(option->name, "msghistory")) {
-	settings.msghistory = option->value.i;
-	alloc_hist_array();
+        settings.msghistory = option->value.i;
+        alloc_hist_array();
     }
     else if (!strcmp(option->name, "name")) {
-	if (option->value.s)
-	    strcpy(settings.plname, option->value.s);
-	else
-	    settings.plname[0] = '\0';
+        if (option->value.s)
+            strcpy(settings.plname, option->value.s);
+        else
+            settings.plname[0] = '\0';
     }
     else
-	return FALSE;
-    
+        return FALSE;
+
     return TRUE;
 }
 

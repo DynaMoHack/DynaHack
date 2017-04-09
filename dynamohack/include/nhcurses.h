@@ -349,7 +349,8 @@ extern void show_keymap_menu(nh_bool readonly);
 extern enum nh_direction key_to_dir(int key);
 
 /* main.c */
-extern const char *nhlogo[];
+extern const char *nhlogo_ascii[];
+extern const char *nhlogo_unicode[];
 
 /* map.c */
 extern int get_map_key(int place_cursor);

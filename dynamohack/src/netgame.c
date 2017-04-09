@@ -452,6 +452,11 @@ static void netgame_mainmenu(struct server_info *server)
     char buf[BUFSZ];
     int n = 1, logowidth, logoheight, i;
     char verstr[32], server_verstr[32];
+    const char * const *nhlogo = ui_flags.unicode ? nhlogo_unicode : nhlogo_ascii;
+
+    logowidth = ui_flags.unicode ? 74 : strlen(nhlogo[0]);
+    for (logoheight = 0; nhlogo[logoheight]; logoheight++)
+        /* empty */;
 
     static struct nh_menuitem netmenu_items[] = {
 	{NEWGAME, MI_NORMAL, "new game", 'n'},
@@ -469,65 +474,61 @@ static void netgame_mainmenu(struct server_info *server)
 	    nhnet_server_ver.minor, nhnet_server_ver.patchlevel);
     
     while (n > 0) {
-	logowidth = strlen(nhlogo[0]);
+        wclear(basewin);
+        wattron(basewin, A_BOLD | COLOR_PAIR(4));
+        for (i = 0; i < logoheight; i++) {
+            wmove(basewin, i, (COLS - logowidth) / 2);
+            waddstr(basewin, nhlogo[i]);
+        }
+        wattroff(basewin, A_BOLD | COLOR_PAIR(4));
 
-	for (logoheight = 0; nhlogo[logoheight]; logoheight++)
-	    /* empty */;
-	wclear(basewin);
-	wattron(basewin, A_BOLD | COLOR_PAIR(4));
-	for (i = 0; i < logoheight; i++) {
-	    wmove(basewin, i, (COLS - logowidth) / 2);
-	    waddstr(basewin, nhlogo[i]);
-	}
-	wattroff(basewin, A_BOLD | COLOR_PAIR(4));
-	
-	if (nhnet_server_ver.major > 0 || nhnet_server_ver.minor > 0)
-	    mvwaddstr(basewin, LINES-1, 0, server_verstr);
-	mvwaddstr(basewin, LINES-1, COLS - strlen(verstr), verstr);
-	wrefresh(basewin);
+        if (nhnet_server_ver.major > 0 || nhnet_server_ver.minor > 0)
+            mvwaddstr(basewin, LINES-1, 0, server_verstr);
+        mvwaddstr(basewin, LINES-1, COLS - strlen(verstr), verstr);
+        wrefresh(basewin);
 
-	menuresult[0] = DISCONNECT; /* default action */
-	snprintf(buf, BUFSZ, "%s on %s:", server->username, server->hostname);
-	n = curses_display_menu_core(netmenu_items, ARRAY_SIZE(netmenu_items),
-				     buf, PICK_ONE, menuresult, 0, logoheight,
-				     COLS, ROWNO+3, NULL, FALSE);
-	
-	switch (menuresult[0]) {
-	    case NEWGAME:
-		net_rungame(FALSE);
-		break;
-		
-	    case TUTORIAL:
-		net_rungame(TRUE);
-		break;
-		
-	    case LOAD:
-		net_loadgame();
-		break;
-		
-	    case REPLAY:
-		net_replay();
-		break;
-		
-	    case OPTIONS:
-		display_options(TRUE);
-		break;
-		
-	    case TOPTEN:
-		show_topten(NULL, -1, FALSE, FALSE);
-		break;
-		
-	    case ACCOUNT:
-		account_menu(server);
-		break;
-		
-	    case DISCONNECT:
-		return;
-	}
-	
-	/* unrecoverable connection error? */
-	if (!nhnet_connected())
-	    break;
+        menuresult[0] = DISCONNECT; /* default action */
+        snprintf(buf, BUFSZ, "%s on %s:", server->username, server->hostname);
+        n = curses_display_menu_core(netmenu_items, ARRAY_SIZE(netmenu_items),
+                buf, PICK_ONE, menuresult, 0, logoheight,
+                COLS, ROWNO+3, NULL, FALSE);
+
+        switch (menuresult[0]) {
+            case NEWGAME:
+                net_rungame(FALSE);
+                break;
+
+            case TUTORIAL:
+                net_rungame(TRUE);
+                break;
+
+            case LOAD:
+                net_loadgame();
+                break;
+
+            case REPLAY:
+                net_replay();
+                break;
+
+            case OPTIONS:
+                display_options(TRUE);
+                break;
+
+            case TOPTEN:
+                show_topten(NULL, -1, FALSE, FALSE);
+                break;
+
+            case ACCOUNT:
+                account_menu(server);
+                break;
+
+            case DISCONNECT:
+                return;
+        }
+
+        /* unrecoverable connection error? */
+        if (!nhnet_connected())
+            break;
     }
 }
 

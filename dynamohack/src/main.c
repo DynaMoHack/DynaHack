@@ -47,16 +47,34 @@ struct nh_menuitem mainmenu_items[] = {
 };
 
 
-const char *nhlogo[] = {
+const char *nhlogo_ascii[] = {
 " ____                        __  __       _    _               _",
 "|  _ \\                      |  \\/  |     | |  | |             | | __",
 "| | \\ | _   _  _____  _____ | \\  / | ___ | |__| | _____  ____ | |/ /",
 "| | | || | | ||  _  \\/  _  || |\\/| |/ _ \\|  __  |/  _  |/  __||   /",
 "| |_/ || |_| || | | || (_| || |  | | (_) | |  | || (_| || (__ | | \\",
 "|____/ \\____ ||_| |_|\\_____||_|  |_|\\___/|_|  |_|\\_____|\\____||_|\\_\\",
-"       |_____/",
+"       |_____/                          Ascend or die!",
 NULL
 };
+
+const char *nhlogo_unicode[] = {
+"║════                       ║══   ══║       ║═║   ══║",
+"║░░░░║                      ║░░║ ║░░║       ║░║   ║░║    Ascend or die!",
+"║░║═░░║══  ══ ═════    ═════║░░░═░░░║ ══════║░║   ║░║  ═════  ═════║═║ ══║",
+"║░║ ║░║║░║ ║░║░░░░░║  ║░░░░║║░░░░░░░║║░░░░░║║░═║═║═░║ ║░░░░║ ║░░░░║║░══░░║",
+"║░║ ║░║║░═══░║░║══░░║║░░░░░║║░║░░░║░║║░░░░░║║░║░░░║░║║░░░░░║║░░░░░║║░║░░═ ",
+"║░║ ║░║║░░░░░║░║  ║░║║░░═║░║║░═║░║═░║║░══║░║║░═║═║═░║║░░═║░║║░░║══ ║░║░║",
+"║░║ ║░║ ║░░░░║░║  ║░║║░║ ║░║║░║ ═ ║░║║░║ ║░║║░║   ║░║║░║ ║░║║░░║   ║░║░░═ ",
+"║░══░░║ ═══░░║░║  ║░║║░═══░║║░║   ║░║║░═══░║║░║   ║░║║░═══░║║░░░══║║░░░░░║",
+"║░░░░═ ║░░░░║║░║  ║░║║░░░░░║║░║   ║░║║░░░░░║║░║   ║░║║░░░░░║ ═░░░░║║░═║░░║",
+" ════  ═════ ║══  ══║ ═════ ║═    ║═  ═════ ║═    ║═  ═════   ════ ══  ═══",
+NULL
+};
+
+
+
+
 
 
 #ifdef UNIX
@@ -219,69 +237,73 @@ static void mainmenu(void)
     int menuresult[1];
     int n = 1, logowidth, logoheight, i;
     const char * const *copybanner = nh_get_copyright_banner();
+    const char * const *nhlogo;
     char verstr[32];
     sprintf(verstr, "Version %d.%d.%d", VERSION_MAJOR, VERSION_MINOR, PATCHLEVEL);
-    
+
     while (n >= 0) {
-	logowidth = strlen(nhlogo[0]);
+        nhlogo = (settings.graphics == UNICODE_GRAPHICS) ? nhlogo_unicode : nhlogo_ascii;
 
-	for (logoheight = 0; nhlogo[logoheight]; logoheight++)
-	    /* empty */;
-	wclear(basewin);
-	wattron(basewin, A_BOLD | COLOR_PAIR(4));
-	for (i = 0; i < logoheight; i++) {
-	    wmove(basewin, i, (COLS - logowidth) / 2);
-	    waddstr(basewin, nhlogo[i]);
-	}
-	wattroff(basewin, A_BOLD | COLOR_PAIR(4));
-	mvwaddstr(basewin, LINES-4, 0, copybanner[0]);
-	mvwaddstr(basewin, LINES-3, 0, copybanner[1]);
-	mvwaddstr(basewin, LINES-2, 0, copybanner[2]);
-	mvwaddstr(basewin, LINES-1, 0, copybanner[3]);
-	mvwaddstr(basewin, LINES-2, COLS - strlen(verstr), verstr);
-	wrefresh(basewin);
+        /* strlen doesn't work because there's unicode. */
+        logowidth = (settings.graphics == UNICODE_GRAPHICS) ? 74 : strlen(nhlogo_ascii[0]);
 
-	n = curses_display_menu_core(mainmenu_items, ARRAY_SIZE(mainmenu_items),
-				     NULL, PICK_ONE, menuresult, 0, logoheight,
-				     COLS, ROWNO+3, NULL, FALSE);
-	if (n < 1)
-	    continue;
+        for (logoheight = 0; nhlogo[logoheight]; logoheight++)
+            /* empty */;
+        wclear(basewin);
+        wattron(basewin, A_BOLD | COLOR_PAIR(4));
+        for (i = 0; i < logoheight; i++) {
+            wmove(basewin, i, (COLS - logowidth) / 2);
+            waddstr(basewin, nhlogo[i]);
+        }
+        wattroff(basewin, A_BOLD | COLOR_PAIR(4));
+        mvwaddstr(basewin, LINES-4, 0, copybanner[0]);
+        mvwaddstr(basewin, LINES-3, 0, copybanner[1]);
+        mvwaddstr(basewin, LINES-2, 0, copybanner[2]);
+        mvwaddstr(basewin, LINES-1, 0, copybanner[3]);
+        mvwaddstr(basewin, LINES-2, COLS - strlen(verstr), verstr);
+        wrefresh(basewin);
 
-	switch (menuresult[0]) {
-	    case NEWGAME:
-		rungame(FALSE);
-		break;
-		
-	    case TUTORIAL:
-		rungame(TRUE);
-		break;
-		
-	    case LOAD:
-		loadgame();
-		break;
-		
-	    case REPLAY:
-		replay();
-		break;
-		
-	    case OPTIONS:
-		display_options(TRUE);
-		break;
-		
+        n = curses_display_menu_core(mainmenu_items, ARRAY_SIZE(mainmenu_items),
+                NULL, PICK_ONE, menuresult, 0, logoheight,
+                COLS, ROWNO+3, NULL, FALSE);
+        if (n < 1)
+            continue;
+
+        switch (menuresult[0]) {
+            case NEWGAME:
+                rungame(FALSE);
+                break;
+
+            case TUTORIAL:
+                rungame(TRUE);
+                break;
+
+            case LOAD:
+                loadgame();
+                break;
+
+            case REPLAY:
+                replay();
+                break;
+
+            case OPTIONS:
+                display_options(TRUE);
+                break;
+
 #if defined(NETCLIENT)
-	    case NETWORK:
-		netgame();
-		break;
+            case NETWORK:
+                netgame();
+                break;
 #endif
-		
-	    case TOPTEN:
-		show_topten(NULL, -1, FALSE, FALSE);
-		break;
-		
-	    case EXITGAME:
-		n = -1; /* simulate menu cancel */
-		return;
-	}
+
+            case TOPTEN:
+                show_topten(NULL, -1, FALSE, FALSE);
+                break;
+
+            case EXITGAME:
+                n = -1; /* simulate menu cancel */
+                return;
+        }
     }
 }
 
