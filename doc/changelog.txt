@@ -1,11 +1,11 @@
-DynaMoHack 0.6.0 (2016-02-17, 0000000)
+DynaHack 0.6.0 (2016-02-17, 0000000)
 ====================================
 
-DynaMoHack 0.6.0 marks a large departure from the 0.5.x series by introducing
+DynaHack 0.6.0 marks a large departure from the 0.5.x series by introducing
 quite a few gameplay and content changes aimed at eliminating tedium, improving
 fairness, and increasing tactical and strategic variety.
 
-As always, changes in DynaMoHack tend to lean in favor of the player more
+As always, changes in DynaHack tend to lean in favor of the player more
 often than not, so players of all skill levels will find something to
 appreciate.
 
@@ -26,7 +26,7 @@ Highlights
 * Drawbridge instant death removed: drawbridges can only be destroyed by force
   bolts when closed, not open.
 * Extra turn before drowning attack instant death.  Players upgrading from an
-  older version of DynaMoHack should adjust their `msgtype` as described in the
+  older version of DynaHack should adjust their `msgtype` as described in the
   Configuration section of this changelog.
 * Zombie corpses may revive (lower chance if playing a priest).
 * Sokoban prizes moved to Mines End, making Sokoban much more optional.
@@ -228,7 +228,7 @@ Dungeon
       75% of the time for all characters).
 * Sokoban prizes moved to Mines End; the end of Sokoban now has a guaranteed
   sack containing 8 rings and wands (the ring and wand on each level has been
-  removed as a result).  This makes Sokoban much more optional in DynaMoHack than
+  removed as a result).  This makes Sokoban much more optional in DynaHack than
   it is in NetHack.
 * Remove lava from one of the versions of the Castle level.
 * Levels between Medusa's Island and the Castle are now water caverns instead of
@@ -297,7 +297,7 @@ Items
 * Improve stacking of random candles by removing random chance of them being
   blessed or cursed (from AceHack).  Between wax and tallow candles, and
   blessed, uncursed and cursed status, an inventory could be filled with 6
-  different candle stacks, even with DynaMoHack's improved item stacking!
+  different candle stacks, even with DynaHack's improved item stacking!
 * Grant +1 to-hit for all short swords (from K-Mod).
 * Allow knife and stiletto as possible tin-opening tools (from K-Mod).
 * Items that spawn with a magical property have a much higher chance to spawn
@@ -463,11 +463,11 @@ Technical
   644 for player config files, preserved save log files, dumplogs, `logfile`,
   `xlogfile` and `record`.
 * Rename launch script for *nix-like operating systems (e.g. Linux and OS X)
-  from `dynamohack` to `dynamohack.sh` to prevent it from overwriting the actual
+  from `dynahack` to `dynahack.sh` to prevent it from overwriting the actual
   game or confusing and being ignored by the installation system in case the
   build system is accidentally set with identical `SHELLDIR` and `BINDIR` paths.
-* Replace `LD_LIBRARY_PATH` in `dynamohack.sh` *nix-like launch script with an
-  rpath configured on the `dynamohack` binary.
+* Replace `LD_LIBRARY_PATH` in `dynahack.sh` *nix-like launch script with an
+  rpath configured on the `dynahack` binary.
 * Allow `INSTALL_BASE` to be passed to the initial cmake invocation to quickly
   set `BINDIR`, `LIBDIR`, `DATADIR` and `SHELLDIR` to sensible default paths
   under it.
@@ -499,7 +499,7 @@ Technical
   for 12 million (12 with six zeros) loadstones in wizard mode.
 * Fix "bad fruit" warnings when slime mold is in inventory while inventory
   sidebar is updated while saving bones.
-* Fix handling of end-of-line comments in `DynaMoHack.conf` and `curses.conf`.
+* Fix handling of end-of-line comments in `DynaHack.conf` and `curses.conf`.
 * Prevent some potential unbounded reads by placing limits on "%s" format
   specifiers in `scanf()` family functions used while reading save file
   headers.
@@ -509,10 +509,10 @@ Technical
 * Convert inversed 10-minus-AC D&D-style armor values with just the armor's
   regular AC value in `src/objects.c`.
 
-DynaMoHack 0.5.5 (2014-01-16, 78d772a)
+DynaHack 0.5.5 (2014-01-16, 78d772a)
 ====================================
 
-DynaMoHack 0.5.5 was a bugfix release for a potential crash with items contained
+DynaHack 0.5.5 was a bugfix release for a potential crash with items contained
 in statues interacting with the timer-related fixes in the previous releases.
 
 Technical
@@ -521,20 +521,20 @@ Technical
   touched items contained in statues due to the latter's failure to correctly
   set their level.
 
-DynaMoHack 0.5.4 (2014-01-06, 34706ac)
+DynaHack 0.5.4 (2014-01-06, 34706ac)
 ====================================
 
-DynaMoHack 0.5.4 was a hotfix release for a timer-related issue.
+DynaHack 0.5.4 was a hotfix release for a timer-related issue.
 
 Technical
 ---------
 * Fix lights and timers failing to follow the items they were attached to when
   the items were moved between levels, causing affected games to fail to load.
 
-DynaMoHack 0.5.3 (2013-12-24, 32216b3)
+DynaHack 0.5.3 (2013-12-24, 32216b3)
 ====================================
 
-DynaMoHack 0.5.3 was a bugfix release that fixed a panic when loading a game with
+DynaHack 0.5.3 was a bugfix release that fixed a panic when loading a game with
 timed items in the Advent Calendar as well as a few other bugs, and adds the
 new `darkmsg` option to control whether past messages are darkened.
 
@@ -571,17 +571,17 @@ Technical
   silently becoming shopkeeper property, even if they didn't typically sell
   them!
 * Fix utilities updating but failing to rebuild the data files that depended on
-  them; stale data files like the ones packaged with DynaMoHack 0.5.0 should be a
+  them; stale data files like the ones packaged with DynaHack 0.5.0 should be a
   thing of the past.
 * Fix crash when positioning a revived monster on entering a level.
 * Fix panic due to timers failing to find the Advent Calendar level during
   loading (the last level of the ledger in general), preventing affected games
   from being loaded.
 
-DynaMoHack 0.5.2 (2013-10-07, 5f067e7)
+DynaHack 0.5.2 (2013-10-07, 5f067e7)
 ====================================
 
-DynaMoHack 0.5.2 was a hotfix release that greatly increased save file integrity
+DynaHack 0.5.2 was a hotfix release that greatly increased save file integrity
 and ability to recover save files by fixing cases of incomplete data being
 logged that were overlooked by NitroHack and NetHack4.
 
@@ -593,10 +593,10 @@ Saves
 * Fix `autopickup_rules` and `msgtype` failing to ensure that changes to them
   were being fully written to the log, leading to save corruption.
 
-DynaMoHack 0.5.1 (2013-09-28, a1289c3)
+DynaHack 0.5.1 (2013-09-28, a1289c3)
 ====================================
 
-DynaMoHack 0.5.1 was a hotfix release to fix a packaging mistake with the Windows
+DynaHack 0.5.1 was a hotfix release to fix a packaging mistake with the Windows
 release that caused special levels to fail to load.
 
 Configuration
@@ -611,10 +611,10 @@ Technical
   shipped game executable and thus refusing to load them and show a generic
   full-level maze instead.
 
-DynaMoHack 0.5.0 (2013-09-18, 65751e0)
+DynaHack 0.5.0 (2013-09-18, 65751e0)
 ====================================
 
-DynaMoHack 0.5.0 is the first public release of DynaMoHack.  It was originally
+DynaHack 0.5.0 is the first public release of DynaHack.  It was originally
 intended to be a port of UnNetHack using NitroHack instead of NetHack 3.4.3 as
 a base (in fact it was originally named "UnNitroHack", though no version with
 that name was ever officially released), but has since taken on a life of its
@@ -628,7 +628,7 @@ NetHack forks like SporkHack and SLASH'EM, and many original changes.
 
 The majority of changes listed below come from UnNetHack.  The remainder are
 sourced according to the following legend:
-* [NEW] = changes originally made for DynaMoHack specifically
+* [NEW] = changes originally made for DynaHack specifically
 * [NH4] = changes ported from NetHack4
 * [Gr] = changes ported from GruntHack
 * [UnP] = changes ported from UnNetHackPlus
@@ -1402,7 +1402,7 @@ NitroHack 4.0.4 is mostly a bugfix release.  It is the last public release of
 NitroHack by Daniel Thaler, though it exists on a separate development branch
 to mainline on its primary Git repository at github.com/DanielT/NitroHack.
 
-It is this version on the stable 4.0.x that DynaMoHack is based on.
+It is this version on the stable 4.0.x that DynaHack is based on.
 
 Interface
 ---------
